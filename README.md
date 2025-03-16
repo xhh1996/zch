@@ -2,45 +2,74 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# 技术实现思路
 
-In the project directory, you can run:
+## 项目概述
 
-### `npm start`
+这是一个基于 React 和 Three.js 的 WebGL 3D 地球展示项目，主要展示带有标记点的交互式地球模型，并结合个人作品集网站功能。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 技术栈
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **前端框架**: React 19 + TypeScript
+- **3D 渲染**: Three.js + React Three Fiber + Drei
+- **动画效果**: GSAP
+- **UI 动效**: Framer Motion
+- **路由管理**: React Router
+- **样式处理**: SASS
 
-### `npm test`
+## 核心功能实现
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **3D 地球渲染**:
 
-### `npm run build`
+   - 使用 Three.js 创建真实感地球模型
+   - 实现地球表面纹理、凹凸贴图和高光贴图
+   - 添加半透明云层效果
+   - 实现大气层发光效果(shader 实现)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **交互标记**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - 在地球表面添加地理位置标记
+   - 标记点带有脉冲动画效果
+   - 标记点附带文字说明
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **响应式界面**:
 
-### `npm run eject`
+   - 适配不同设备屏幕尺寸
+   - 窗口大小变化时自动调整 3D 场景
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. **个人作品集部分**:
+   - 导航栏(Navbar)组件
+   - 首页介绍(Hero)组件
+   - 关于我(About)组件
+   - 技能展示(Skills)组件
+   - 工作经历(Experience)组件
+   - 联系方式(Contact)组件
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 项目结构
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+src/
+├── components/       # React组件
+│   ├── Navbar/       # 导航栏组件
+│   ├── Hero/         # 首页介绍组件
+│   ├── About/        # 关于我组件
+│   ├── Skills/       # 技能展示组件
+│   ├── Experience/   # 工作经历组件
+│   ├── Contact/      # 联系方式组件
+│   └── ThreeText.tsx # Three.js文本渲染组件
+├── scenes/           # Three.js场景
+│   └── ThreeScene.tsx # 3D地球场景
+├── styles/           # 样式文件
+├── hooks/            # 自定义React钩子
+├── utils/            # 工具函数
+├── assets/           # 静态资源
+└── App.tsx           # 应用主组件
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 技术亮点
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. 使用 WebGL 实现高性能 3D 渲染
+2. 结合 React 组件化思想与 Three.js 的 3D 渲染能力
+3. 使用异步加载管理器处理 3D 贴图资源
+4. 运用着色器(shader)实现高级视觉效果
+5. 优化 3D 渲染性能，提供流畅用户体验
