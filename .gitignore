@@ -42,7 +42,7 @@ logs
 .stylelintcache
 
 # 项目特定文件
-public/earth.jpg_files/
+# public/earth.jpg_files/
 
 # 其他
 .DS_Store
